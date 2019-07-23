@@ -1,2 +1,2 @@
 # YoobicTest
-Private repo for Yoobic test
+repo for Yoobic test
