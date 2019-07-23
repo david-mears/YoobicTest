@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-list',
@@ -19,15 +20,19 @@ export class ListPage implements OnInit {
     'bluetooth',
     'build'
   ];
-  public items: Array<{ title: string; note: string; icon: string }> = [];
-  constructor() {
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  public items = [];
+  constructor(private http: HttpClient) {
+    this.http.get('https://pokeapi.co/api/v2/pokemon/ditto/')
+      .subscribe((response) => { this.items.push(response) });
+    
+      console.log(this.items)
+    // for (let i = 1; i < 11; i++) {
+    //   this.items.push({
+    //     title: 'Item ' + i,
+    //     note: 'This is item #' + i,
+    //     icon: this.icons[Math.floor(Math.random() * this.icons.length)]
+    //   });
+    // }
   }
 
   ngOnInit() {
