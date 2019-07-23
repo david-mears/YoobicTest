@@ -12,11 +12,10 @@
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of items">
-      
-      <ion-img [src]="item.sprites.front_default" slot="start"></ion-img>
-      {{item.name}}
+      <h2>{{item.name}}</h2><br/>
+      <ion-img [src]="item.sprites.front_default"></ion-img>
       <div class="item-note" slot="end">
-        <!-- {{item.species.name}} -->
+        <p>Weight: {{item.weight}}</p>
       </div>
     </ion-item>
   </ion-list>
